@@ -1,0 +1,6 @@
+G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB5\SerwisWebowy\MojWebSerwis\bin\MojWebSerwis.dll.config
+G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB5\SerwisWebowy\MojWebSerwis\bin\MojWebSerwis.dll
+G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB5\SerwisWebowy\MojWebSerwis\bin\MojWebSerwis.pdb
+G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB5\SerwisWebowy\MojWebSerwis\obj\Debug\MojWebSerwis.csproj.CoreCompileInputs.cache
+G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB5\SerwisWebowy\MojWebSerwis\obj\Debug\MojWebSerwis.dll
+G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB5\SerwisWebowy\MojWebSerwis\obj\Debug\MojWebSerwis.pdb
