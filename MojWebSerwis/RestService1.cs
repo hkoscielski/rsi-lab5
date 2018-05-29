@@ -11,62 +11,58 @@ namespace MojWebSerwis
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
     public class RestService1 : IRestService1
     {
-        private List<Book> books;
+        private List<Student> students;
 
-        public RestService1()
+        public List<Student> GetAll()
         {
-            books = new List<Book>()
+            return students;
+        }
+
+        public Student GetById(string index)
+        {            
+            return students.Find(s => s.index == index);
+        }
+
+        public List<Student> GetJsonAll()
+        {
+            return students;
+        }
+
+        public Student GetJsonById(string index)
+        {
+            return students.Find(s => s.index == index);
+        }
+
+        public string Update(string index, Student student)
+        {
+            if(student == null)
             {
-                new Book { id = 1, title = "Pan Tadeusz", price = 19.99 },
-                new Book { id = 2, title = "Harry Potter", price = 29.99 },
-                new Book { id = 3, title = "Ostatnie życzenie", price = 34.99 }                
-            };
+                throw new ArgumentNullException("Student is null");
+            }
+            int i = students.FindIndex(s => s.index == student.index);
+            if(i == -1)
+            {
+                return string.Format("Nie mozna zaktualizowac elementu o id = {0}", index);
+            }
+            students.RemoveAt(i);
+            students.Add(student);
+            return string.Format("Zaktualizowano element o id = {0}", index);
         }
 
-        public List<Book> GetAll()
+        public string UpdateJson(string index, Student student)
         {
-            return books;
-        }
-
-        public Book GetById(string id)
-        {
-            int intId = int.Parse(id);
-            return books.Find(b => b.id == intId);
-        }
-
-        public List<Book> GetJsonAll()
-        {
-            return books;
-        }
-
-        public Book GetJsonById(string id)
-        {
-            int intId = int.Parse(id);
-            return books.Find(b => b.id == intId);
-        }
-
-        public string Update(string id, Book element)
-        {
-            if (element == null)
-                throw new ArgumentNullException("Blad update");
-            int idx = books.FindIndex(b => b.id == element.id);
-            if (idx == -1)
-                return "Nie mozna zaktualizowac elementu o id=" + id;
-            books.RemoveAt(idx);
-            books.Add(element);
-            return "Zaktualizowano element o id=" + id;
-        }
-
-        public string UpdateJson(string id, Book element)
-        {
-            if (element == null)
-                throw new ArgumentNullException("Blad update");
-            int idx = books.FindIndex(b => b.id == element.id);
-            if (idx == -1)
-                return "Nie mozna zaktualizowac elementu o id=" + id;
-            books.RemoveAt(idx);
-            books.Add(element);
-            return "Zaktualizowano element o id=" + id;
+            if (student == null)
+            {
+                throw new ArgumentNullException("Student is null");
+            }
+            int i = students.FindIndex(s => s.index == student.index);
+            if (i == -1)
+            {
+                return string.Format("Nie mozna zaktualizowac elementu o id = {0}", index);
+            }
+            students.RemoveAt(i);
+            students.Add(student);
+            return string.Format("Zaktualizowano element o id = {0}", index);
         }
     }
 }
