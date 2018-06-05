@@ -8,3 +8,7 @@ G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB5\SerwisWebowy\MojKlien
 G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB5\SerwisWebowy\MojKlientWindow\obj\Release\MojKlientWindow.csproj.CoreCompileInputs.cache
 G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB5\SerwisWebowy\MojKlientWindow\obj\Release\MojKlientWindow.exe
 G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB5\SerwisWebowy\MojKlientWindow\obj\Release\MojKlientWindow.pdb
+G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB5\SerwisWebowy\MojKlientWindow\bin\Release\MojWebSerwis.dll
+G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB5\SerwisWebowy\MojKlientWindow\bin\Release\MojWebSerwis.pdb
+G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB5\SerwisWebowy\MojKlientWindow\bin\Release\MojWebSerwis.dll.config
+G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB5\SerwisWebowy\MojKlientWindow\obj\Release\MojKlientWindow.csproj.CopyComplete

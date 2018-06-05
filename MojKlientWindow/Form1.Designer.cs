@@ -41,9 +41,9 @@
             "City",
             "Year"}, -1);
             this.listView_Students = new System.Windows.Forms.ListView();
-            this.columnHeader_Name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader_Surname = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader_Index = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader_Surname = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader_Name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader_City = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader_BirthYear = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button_Filter = new System.Windows.Forms.Button();
@@ -103,20 +103,21 @@
             this.listView_Students.TabIndex = 1;
             this.listView_Students.UseCompatibleStateImageBehavior = false;
             this.listView_Students.View = System.Windows.Forms.View.Details;
+            this.listView_Students.SelectedIndexChanged += new System.EventHandler(this.listView_Students_SelectedIndexChanged);
             // 
-            // columnHeader_Name
+            // columnHeader_Index
             // 
-            this.columnHeader_Name.Text = "Imię";
-            this.columnHeader_Name.Width = 55;
+            this.columnHeader_Index.Text = "Indeks";
             // 
             // columnHeader_Surname
             // 
             this.columnHeader_Surname.Text = "Nazwisko";
             this.columnHeader_Surname.Width = 63;
             // 
-            // columnHeader_Index
+            // columnHeader_Name
             // 
-            this.columnHeader_Index.Text = "Indeks";
+            this.columnHeader_Name.Text = "Imię";
+            this.columnHeader_Name.Width = 55;
             // 
             // columnHeader_City
             // 
@@ -135,6 +136,7 @@
             this.button_Filter.TabIndex = 6;
             this.button_Filter.Text = "Filtruj";
             this.button_Filter.UseVisualStyleBackColor = true;
+            this.button_Filter.Click += new System.EventHandler(this.button_Filter_Click);
             // 
             // button_Add
             // 
@@ -144,6 +146,7 @@
             this.button_Add.TabIndex = 7;
             this.button_Add.Text = "Dodaj";
             this.button_Add.UseVisualStyleBackColor = true;
+            this.button_Add.Click += new System.EventHandler(this.button_Add_Click);
             // 
             // label_Name
             // 
@@ -216,6 +219,7 @@
             this.button_Modify.TabIndex = 9;
             this.button_Modify.Text = "Modyfikuj";
             this.button_Modify.UseVisualStyleBackColor = true;
+            this.button_Modify.Click += new System.EventHandler(this.button_Modify_Click);
             // 
             // button_Delete
             // 
@@ -225,6 +229,7 @@
             this.button_Delete.TabIndex = 8;
             this.button_Delete.Text = "Usuń";
             this.button_Delete.UseVisualStyleBackColor = true;
+            this.button_Delete.Click += new System.EventHandler(this.button_Delete_Click);
             // 
             // panel1
             // 
