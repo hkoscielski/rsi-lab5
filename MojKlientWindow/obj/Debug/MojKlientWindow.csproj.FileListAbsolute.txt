@@ -1,0 +1,10 @@
+C:\Users\Konrad2\Documents\GitHub\rsi-lab5\MojKlientWindow\bin\Debug\MojKlientWindow.exe.config
+C:\Users\Konrad2\Documents\GitHub\rsi-lab5\MojKlientWindow\bin\Debug\MojKlientWindow.exe
+C:\Users\Konrad2\Documents\GitHub\rsi-lab5\MojKlientWindow\bin\Debug\MojKlientWindow.pdb
+C:\Users\Konrad2\Documents\GitHub\rsi-lab5\MojKlientWindow\obj\Debug\MojKlientWindow.csprojResolveAssemblyReference.cache
+C:\Users\Konrad2\Documents\GitHub\rsi-lab5\MojKlientWindow\obj\Debug\MojKlientWindow.Form1.resources
+C:\Users\Konrad2\Documents\GitHub\rsi-lab5\MojKlientWindow\obj\Debug\MojKlientWindow.Properties.Resources.resources
+C:\Users\Konrad2\Documents\GitHub\rsi-lab5\MojKlientWindow\obj\Debug\MojKlientWindow.csproj.GenerateResource.Cache
+C:\Users\Konrad2\Documents\GitHub\rsi-lab5\MojKlientWindow\obj\Debug\MojKlientWindow.csproj.CoreCompileInputs.cache
+C:\Users\Konrad2\Documents\GitHub\rsi-lab5\MojKlientWindow\obj\Debug\MojKlientWindow.exe
+C:\Users\Konrad2\Documents\GitHub\rsi-lab5\MojKlientWindow\obj\Debug\MojKlientWindow.pdb
