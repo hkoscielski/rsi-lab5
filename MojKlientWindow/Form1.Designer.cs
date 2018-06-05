@@ -29,14 +29,18 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
+            "228000",
+            "Kowalski",
             "Jan",
-            "",
-            "",
-            ""}, -1);
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("vxcvcx");
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("");
-            this.listView1 = new System.Windows.Forms.ListView();
+            "Wrocław",
+            "1998"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
+            "231321",
+            "Surname",
+            "Name",
+            "City",
+            "Year"}, -1);
+            this.listView_Students = new System.Windows.Forms.ListView();
             this.columnHeader_Name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader_Surname = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader_Index = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -76,26 +80,29 @@
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // listView1
+            // listView_Students
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader_Name,
-            this.columnHeader_Surname,
+            this.listView_Students.AllowColumnReorder = true;
+            this.listView_Students.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader_Index,
+            this.columnHeader_Surname,
+            this.columnHeader_Name,
             this.columnHeader_City,
             this.columnHeader_BirthYear});
-            listViewItem4.IndentCount = 1;
-            this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            this.listView_Students.FullRowSelect = true;
+            this.listView_Students.HideSelection = false;
+            listViewItem1.StateImageIndex = 0;
+            listViewItem2.StateImageIndex = 0;
+            this.listView_Students.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1,
-            listViewItem2,
-            listViewItem3,
-            listViewItem4});
-            this.listView1.Location = new System.Drawing.Point(12, 49);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(326, 318);
-            this.listView1.TabIndex = 1;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            listViewItem2});
+            this.listView_Students.Location = new System.Drawing.Point(12, 49);
+            this.listView_Students.Name = "listView_Students";
+            this.listView_Students.Size = new System.Drawing.Size(326, 318);
+            this.listView_Students.Sorting = System.Windows.Forms.SortOrder.Ascending;
+            this.listView_Students.TabIndex = 1;
+            this.listView_Students.UseCompatibleStateImageBehavior = false;
+            this.listView_Students.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader_Name
             // 
@@ -134,14 +141,14 @@
             this.button_Add.Location = new System.Drawing.Point(477, 297);
             this.button_Add.Name = "button_Add";
             this.button_Add.Size = new System.Drawing.Size(75, 32);
-            this.button_Add.TabIndex = 12;
+            this.button_Add.TabIndex = 7;
             this.button_Add.Text = "Dodaj";
             this.button_Add.UseVisualStyleBackColor = true;
             // 
             // label_Name
             // 
             this.label_Name.AutoSize = true;
-            this.label_Name.Location = new System.Drawing.Point(49, 18);
+            this.label_Name.Location = new System.Drawing.Point(49, 104);
             this.label_Name.Name = "label_Name";
             this.label_Name.Size = new System.Drawing.Size(26, 13);
             this.label_Name.TabIndex = 4;
@@ -149,11 +156,11 @@
             // 
             // textBoxFilter_Name
             // 
-            this.textBoxFilter_Name.Location = new System.Drawing.Point(14, 34);
+            this.textBoxFilter_Name.Location = new System.Drawing.Point(14, 120);
             this.textBoxFilter_Name.MaxLength = 20;
             this.textBoxFilter_Name.Name = "textBoxFilter_Name";
             this.textBoxFilter_Name.Size = new System.Drawing.Size(100, 20);
-            this.textBoxFilter_Name.TabIndex = 1;
+            this.textBoxFilter_Name.TabIndex = 3;
             // 
             // label_Filter
             // 
@@ -195,7 +202,7 @@
             // label_Index
             // 
             this.label_Index.AutoSize = true;
-            this.label_Index.Location = new System.Drawing.Point(43, 104);
+            this.label_Index.Location = new System.Drawing.Point(43, 18);
             this.label_Index.Name = "label_Index";
             this.label_Index.Size = new System.Drawing.Size(39, 13);
             this.label_Index.TabIndex = 10;
@@ -206,7 +213,7 @@
             this.button_Modify.Location = new System.Drawing.Point(477, 335);
             this.button_Modify.Name = "button_Modify";
             this.button_Modify.Size = new System.Drawing.Size(75, 32);
-            this.button_Modify.TabIndex = 13;
+            this.button_Modify.TabIndex = 9;
             this.button_Modify.Text = "Modyfikuj";
             this.button_Modify.UseVisualStyleBackColor = true;
             // 
@@ -215,7 +222,7 @@
             this.button_Delete.Location = new System.Drawing.Point(396, 335);
             this.button_Delete.Name = "button_Delete";
             this.button_Delete.Size = new System.Drawing.Size(75, 32);
-            this.button_Delete.TabIndex = 14;
+            this.button_Delete.TabIndex = 8;
             this.button_Delete.Text = "Usuń";
             this.button_Delete.UseVisualStyleBackColor = true;
             // 
@@ -246,11 +253,11 @@
             // 
             // textBoxFilter_Index
             // 
-            this.textBoxFilter_Index.Location = new System.Drawing.Point(14, 120);
+            this.textBoxFilter_Index.Location = new System.Drawing.Point(14, 34);
             this.textBoxFilter_Index.MaxLength = 15;
             this.textBoxFilter_Index.Name = "textBoxFilter_Index";
             this.textBoxFilter_Index.Size = new System.Drawing.Size(100, 20);
-            this.textBoxFilter_Index.TabIndex = 3;
+            this.textBoxFilter_Index.TabIndex = 1;
             // 
             // textBoxFilter_City
             // 
@@ -316,11 +323,11 @@
             // 
             // textBoxManager_Name
             // 
-            this.textBoxManager_Name.Location = new System.Drawing.Point(14, 34);
+            this.textBoxManager_Name.Location = new System.Drawing.Point(14, 120);
             this.textBoxManager_Name.MaxLength = 20;
             this.textBoxManager_Name.Name = "textBoxManager_Name";
             this.textBoxManager_Name.Size = new System.Drawing.Size(100, 20);
-            this.textBoxManager_Name.TabIndex = 1;
+            this.textBoxManager_Name.TabIndex = 3;
             // 
             // textBoxManager_Surname
             // 
@@ -332,11 +339,11 @@
             // 
             // textBoxManager_Index
             // 
-            this.textBoxManager_Index.Location = new System.Drawing.Point(14, 120);
+            this.textBoxManager_Index.Location = new System.Drawing.Point(14, 34);
             this.textBoxManager_Index.MaxLength = 15;
             this.textBoxManager_Index.Name = "textBoxManager_Index";
             this.textBoxManager_Index.Size = new System.Drawing.Size(100, 20);
-            this.textBoxManager_Index.TabIndex = 3;
+            this.textBoxManager_Index.TabIndex = 1;
             // 
             // textBoxManager_City
             // 
@@ -357,7 +364,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(49, 18);
+            this.label3.Location = new System.Drawing.Point(49, 104);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(26, 13);
             this.label3.TabIndex = 4;
@@ -375,7 +382,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(43, 104);
+            this.label5.Location = new System.Drawing.Point(43, 18);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(39, 13);
             this.label5.TabIndex = 10;
@@ -412,11 +419,11 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button_Add);
             this.Controls.Add(this.button_Filter);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.listView_Students);
             this.Controls.Add(this.filterPanel);
             this.Controls.Add(this.panel1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Student Manager";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.filterPanel.ResumeLayout(false);
             this.filterPanel.PerformLayout();
@@ -428,7 +435,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView listView_Students;
         private System.Windows.Forms.Button button_Filter;
         private System.Windows.Forms.Button button_Add;
         private System.Windows.Forms.Label label_Name;

@@ -4,3 +4,10 @@ G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB5\SerwisWebowy\MojWebSe
 G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB5\SerwisWebowy\MojWebSerwis\obj\Debug\MojWebSerwis.csproj.CoreCompileInputs.cache
 G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB5\SerwisWebowy\MojWebSerwis\obj\Debug\MojWebSerwis.dll
 G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB5\SerwisWebowy\MojWebSerwis\obj\Debug\MojWebSerwis.pdb
+C:\Users\Konrad2\Documents\GitHub\rsi-lab5\MojWebSerwis\bin\MojWebSerwis.dll.config
+C:\Users\Konrad2\Documents\GitHub\rsi-lab5\MojWebSerwis\bin\MojWebSerwis.dll
+C:\Users\Konrad2\Documents\GitHub\rsi-lab5\MojWebSerwis\bin\MojWebSerwis.pdb
+C:\Users\Konrad2\Documents\GitHub\rsi-lab5\MojWebSerwis\obj\Debug\MojWebSerwis.csprojResolveAssemblyReference.cache
+C:\Users\Konrad2\Documents\GitHub\rsi-lab5\MojWebSerwis\obj\Debug\MojWebSerwis.csproj.CoreCompileInputs.cache
+C:\Users\Konrad2\Documents\GitHub\rsi-lab5\MojWebSerwis\obj\Debug\MojWebSerwis.dll
+C:\Users\Konrad2\Documents\GitHub\rsi-lab5\MojWebSerwis\obj\Debug\MojWebSerwis.pdb
