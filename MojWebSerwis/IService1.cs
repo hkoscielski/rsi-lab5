@@ -23,13 +23,13 @@ namespace MojWebSerwis
 
         [OperationContract]
         [WebInvoke(UriTemplate = "/students/{index}",
-            Method = "PUT",
+            Method = "POST",
             RequestFormat = WebMessageFormat.Xml)]
         string Update(string index, Student student);
 
         [OperationContract]
         [WebInvoke(UriTemplate = "/students/{index}",
-            Method = "PUT",
+            Method = "DELETE",
             RequestFormat = WebMessageFormat.Xml)]
         string Delete(string index);
 
@@ -45,13 +45,13 @@ namespace MojWebSerwis
 
         [OperationContract]
         [WebInvoke(UriTemplate = "/json/students/{index}",
-            Method = "PUT",
+            Method = "POST",
             RequestFormat = WebMessageFormat.Json)]
         string UpdateJson(string index, Student student);
 
         [OperationContract]
         [WebInvoke(UriTemplate = "/json/students/{index}",
-            Method = "PUT",
+            Method = "DELETE",
             RequestFormat = WebMessageFormat.Json)]
         string DeleteJson(string index);
     }
@@ -64,7 +64,7 @@ namespace MojWebSerwis
         [DataMember]
         public string firstName;
         [DataMember]
-        public double lastName;
+        public string lastName;
         [DataMember]
         public string city;
         [DataMember]

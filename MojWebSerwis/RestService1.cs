@@ -13,12 +13,22 @@ namespace MojWebSerwis
     {
         private List<Student> students;
 
+        public RestService1()
+        {
+            students = new List<Student>()
+            {
+                new Student { index = "222223", firstName = "Michał", lastName = "Kościelski", city = "Konin", yearOfBirth = 1996 },
+                new Student { index = "242134", firstName = "Stefan", lastName = "Kowalski", city = "Wrocław", yearOfBirth = 1997 },
+                new Student { index = "215123", firstName = "Anna", lastName = "Nowak", city = "Opole", yearOfBirth = 1995 }
+            };            
+        }
+
         public string Delete(string index)
         {
             int i = students.FindIndex(s => s.index == index);
             if (i == -1)
             {
-                return string.Format("Nie mozna usunąć studenta elementu o indeksie {0}", index);
+                return string.Format("Usuwanie niepomyślne. Nie znaleziono studenta o indeksie {0}", index);
             }
             students.RemoveAt(i);            
             return string.Format("Usunięto studenta o indeksie {0}", index);
@@ -29,7 +39,7 @@ namespace MojWebSerwis
             int i = students.FindIndex(s => s.index == index);
             if (i == -1)
             {
-                return string.Format("Nie mozna usunąć studenta elementu o indeksie {0}", index);
+                return string.Format("Usuwanie niepomyślne. Nie znaleziono studenta o indeksie {0}", index);
             }
             students.RemoveAt(i);
             return string.Format("Usunięto studenta o indeksie {0}", index);
