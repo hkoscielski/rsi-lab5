@@ -146,7 +146,6 @@
             this.label_Name.Size = new System.Drawing.Size(26, 13);
             this.label_Name.TabIndex = 4;
             this.label_Name.Text = "Imię";
-            this.label_Name.Click += new System.EventHandler(this.label1_Click);
             // 
             // textBoxFilter_Name
             // 
@@ -155,7 +154,6 @@
             this.textBoxFilter_Name.Name = "textBoxFilter_Name";
             this.textBoxFilter_Name.Size = new System.Drawing.Size(100, 20);
             this.textBoxFilter_Name.TabIndex = 1;
-            this.textBoxFilter_Name.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label_Filter
             // 
@@ -184,7 +182,6 @@
             this.textBoxFilter_Surname.Name = "textBoxFilter_Surname";
             this.textBoxFilter_Surname.Size = new System.Drawing.Size(100, 20);
             this.textBoxFilter_Surname.TabIndex = 2;
-            this.textBoxFilter_Surname.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // label_Surname
             // 
@@ -194,7 +191,6 @@
             this.label_Surname.Size = new System.Drawing.Size(53, 13);
             this.label_Surname.TabIndex = 8;
             this.label_Surname.Text = "Nazwisko";
-            this.label_Surname.Click += new System.EventHandler(this.label2_Click);
             // 
             // label_Index
             // 
@@ -204,7 +200,6 @@
             this.label_Index.Size = new System.Drawing.Size(39, 13);
             this.label_Index.TabIndex = 10;
             this.label_Index.Text = "Indeks";
-            this.label_Index.Click += new System.EventHandler(this.label3_Click);
             // 
             // button_Modify
             // 
@@ -256,7 +251,6 @@
             this.textBoxFilter_Index.Name = "textBoxFilter_Index";
             this.textBoxFilter_Index.Size = new System.Drawing.Size(100, 20);
             this.textBoxFilter_Index.TabIndex = 3;
-            this.textBoxFilter_Index.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // textBoxFilter_City
             // 
@@ -265,7 +259,6 @@
             this.textBoxFilter_City.Name = "textBoxFilter_City";
             this.textBoxFilter_City.Size = new System.Drawing.Size(100, 20);
             this.textBoxFilter_City.TabIndex = 4;
-            this.textBoxFilter_City.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // textBoxFilter_YearOfBirth
             // 
@@ -274,7 +267,6 @@
             this.textBoxFilter_YearOfBirth.Name = "textBoxFilter_YearOfBirth";
             this.textBoxFilter_YearOfBirth.Size = new System.Drawing.Size(100, 20);
             this.textBoxFilter_YearOfBirth.TabIndex = 5;
-            this.textBoxFilter_YearOfBirth.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
             // label_City
             // 
@@ -284,7 +276,6 @@
             this.label_City.Size = new System.Drawing.Size(38, 13);
             this.label_City.TabIndex = 12;
             this.label_City.Text = "Miasto";
-            this.label_City.Click += new System.EventHandler(this.label4_Click);
             // 
             // label_YearOfBirth
             // 
@@ -294,7 +285,6 @@
             this.label_YearOfBirth.Size = new System.Drawing.Size(76, 13);
             this.label_YearOfBirth.TabIndex = 14;
             this.label_YearOfBirth.Text = "Rok urodzenia";
-            this.label_YearOfBirth.Click += new System.EventHandler(this.label5_Click);
             // 
             // label_Manager
             // 
