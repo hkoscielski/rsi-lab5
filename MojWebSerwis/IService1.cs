@@ -12,46 +12,50 @@ namespace MojWebSerwis
     public interface IRestService1
     {
         [OperationContract]
-        [WebGet(UriTemplate = "/books",
+        [WebGet(UriTemplate = "/students",
             ResponseFormat = WebMessageFormat.Xml)]
-        List<Book> GetAll();
+        List<Student> GetAll();
 
         [OperationContract]
-        [WebGet(UriTemplate = "/books/{id}",
+        [WebGet(UriTemplate = "/students/{index}",
             ResponseFormat = WebMessageFormat.Xml)]
-        Book GetById(string id);
+        Student GetById(string index);
 
         [OperationContract]
-        [WebInvoke(UriTemplate = "/books/{id}",
+        [WebInvoke(UriTemplate = "/students/{index}",
             Method = "PUT",
             RequestFormat = WebMessageFormat.Xml)]
-        string Update(string id, Book element);
+        string Update(string index, Student student);
 
         [OperationContract]
-        [WebGet(UriTemplate = "/json/books",
+        [WebGet(UriTemplate = "/json/students",
             ResponseFormat = WebMessageFormat.Json)]
-        List<Book> GetJsonAll();
+        List<Student> GetJsonAll();
 
         [OperationContract]
-        [WebGet(UriTemplate = "/json/books/{id}",
+        [WebGet(UriTemplate = "/json/students/{index}",
             ResponseFormat = WebMessageFormat.Json)]
-        Book GetJsonById(string id);
+        Student GetJsonById(string index);
 
         [OperationContract]
-        [WebInvoke(UriTemplate = "/json/books/{id}",
+        [WebInvoke(UriTemplate = "/json/students/{index}",
             Method = "PUT",
             RequestFormat = WebMessageFormat.Json)]
-        string UpdateJson(string id, Book element);
+        string UpdateJson(string index, Student student);
     }
 
     [DataContract]
-    public class Book
+    public class Student
     {
         [DataMember]
-        public int id;
+        public string index;
         [DataMember]
-        public string title;
+        public string firstName;
         [DataMember]
-        public double price;
+        public double lastName;
+        [DataMember]
+        public string city;
+        [DataMember]
+        public int yearOfBirth;
     }
 }
