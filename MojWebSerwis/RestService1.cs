@@ -13,6 +13,28 @@ namespace MojWebSerwis
     {
         private List<Student> students;
 
+        public string Delete(string index)
+        {
+            int i = students.FindIndex(s => s.index == index);
+            if (i == -1)
+            {
+                return string.Format("Nie mozna usunąć studenta elementu o indeksie {0}", index);
+            }
+            students.RemoveAt(i);            
+            return string.Format("Usunięto studenta o indeksie {0}", index);
+        }
+
+        public string DeleteJson(string index)
+        {
+            int i = students.FindIndex(s => s.index == index);
+            if (i == -1)
+            {
+                return string.Format("Nie mozna usunąć studenta elementu o indeksie {0}", index);
+            }
+            students.RemoveAt(i);
+            return string.Format("Usunięto studenta o indeksie {0}", index);
+        }
+
         public List<Student> GetAll()
         {
             return students;
@@ -42,11 +64,11 @@ namespace MojWebSerwis
             int i = students.FindIndex(s => s.index == student.index);
             if(i == -1)
             {
-                return string.Format("Nie mozna zaktualizowac elementu o id = {0}", index);
+                return string.Format("Nie mozna zaktualizowac danych studenta o indeksie {0}", index);
             }
             students.RemoveAt(i);
             students.Add(student);
-            return string.Format("Zaktualizowano element o id = {0}", index);
+            return string.Format("Zaktualizowano dane studenta o indeksie {0}", index);
         }
 
         public string UpdateJson(string index, Student student)
@@ -58,11 +80,11 @@ namespace MojWebSerwis
             int i = students.FindIndex(s => s.index == student.index);
             if (i == -1)
             {
-                return string.Format("Nie mozna zaktualizowac elementu o id = {0}", index);
+                return string.Format("Nie mozna zaktualizowac danych studenta o indeksie {0}", index);
             }
             students.RemoveAt(i);
             students.Add(student);
-            return string.Format("Zaktualizowano element o id = {0}", index);
+            return string.Format("Zaktualizowano dane studenta o indeksie {0}", index);
         }
     }
 }

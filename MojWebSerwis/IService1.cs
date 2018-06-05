@@ -28,6 +28,12 @@ namespace MojWebSerwis
         string Update(string index, Student student);
 
         [OperationContract]
+        [WebInvoke(UriTemplate = "/students/{index}",
+            Method = "PUT",
+            RequestFormat = WebMessageFormat.Xml)]
+        string Delete(string index);
+
+        [OperationContract]
         [WebGet(UriTemplate = "/json/students",
             ResponseFormat = WebMessageFormat.Json)]
         List<Student> GetJsonAll();
@@ -42,6 +48,12 @@ namespace MojWebSerwis
             Method = "PUT",
             RequestFormat = WebMessageFormat.Json)]
         string UpdateJson(string index, Student student);
+
+        [OperationContract]
+        [WebInvoke(UriTemplate = "/json/students/{index}",
+            Method = "PUT",
+            RequestFormat = WebMessageFormat.Json)]
+        string DeleteJson(string index);
     }
 
     [DataContract]
