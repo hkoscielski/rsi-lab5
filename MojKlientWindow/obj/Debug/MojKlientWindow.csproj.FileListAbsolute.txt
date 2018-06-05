@@ -8,3 +8,6 @@ C:\Users\Konrad2\Documents\GitHub\rsi-lab5\MojKlientWindow\obj\Debug\MojKlientWi
 C:\Users\Konrad2\Documents\GitHub\rsi-lab5\MojKlientWindow\obj\Debug\MojKlientWindow.csproj.CoreCompileInputs.cache
 C:\Users\Konrad2\Documents\GitHub\rsi-lab5\MojKlientWindow\obj\Debug\MojKlientWindow.exe
 C:\Users\Konrad2\Documents\GitHub\rsi-lab5\MojKlientWindow\obj\Debug\MojKlientWindow.pdb
+C:\Users\Konrad2\Documents\GitHub\rsi-lab5\MojKlientWindow\bin\Debug\MojWebSerwis.dll
+C:\Users\Konrad2\Documents\GitHub\rsi-lab5\MojKlientWindow\bin\Debug\MojWebSerwis.pdb
+C:\Users\Konrad2\Documents\GitHub\rsi-lab5\MojKlientWindow\bin\Debug\MojWebSerwis.dll.config
