@@ -12,6 +12,12 @@ namespace MojWebSerwis
     public interface IRestService1
     {
         [OperationContract]
+        [WebInvoke(UriTemplate = "/students",
+            Method = "POST",
+            ResponseFormat = WebMessageFormat.Xml)]
+        string Create(Student student);
+
+        [OperationContract]
         [WebGet(UriTemplate = "/students",
             ResponseFormat = WebMessageFormat.Xml)]
         List<Student> GetAll();
@@ -23,7 +29,7 @@ namespace MojWebSerwis
 
         [OperationContract]
         [WebInvoke(UriTemplate = "/students/{index}",
-            Method = "POST",
+            Method = "PUT",
             RequestFormat = WebMessageFormat.Xml)]
         string Update(string index, Student student);
 
@@ -32,6 +38,12 @@ namespace MojWebSerwis
             Method = "DELETE",
             RequestFormat = WebMessageFormat.Xml)]
         string Delete(string index);
+
+        [OperationContract]
+        [WebInvoke(UriTemplate = "/json/students",
+            Method = "POST",
+            ResponseFormat = WebMessageFormat.Json)]
+        string CreateJson(Student student);
 
         [OperationContract]
         [WebGet(UriTemplate = "/json/students",
@@ -45,7 +57,7 @@ namespace MojWebSerwis
 
         [OperationContract]
         [WebInvoke(UriTemplate = "/json/students/{index}",
-            Method = "POST",
+            Method = "PUT",
             RequestFormat = WebMessageFormat.Json)]
         string UpdateJson(string index, Student student);
 

@@ -23,6 +23,28 @@ namespace MojWebSerwis
             };            
         }
 
+        public string Create(Student student)
+        {
+            int i = students.FindIndex(s => s.index == student.index);
+            if (i != -1)
+            {
+                return string.Format("Dodawanie niepomyślne. Student o indeksie {0} już istnieje", student.index);
+            }
+            students.Add(student);
+            return string.Format("Dodano studenta o indeksie {0}", student.index);
+        }
+
+        public string CreateJson(Student student)
+        {
+            int i = students.FindIndex(s => s.index == student.index);
+            if (i != -1)
+            {
+                return string.Format("Dodawanie niepomyślne. Student o indeksie {0} już istnieje", student.index);
+            }
+            students.Add(student);
+            return string.Format("Dodano studenta o indeksie {0}", student.index);
+        }
+
         public string Delete(string index)
         {
             int i = students.FindIndex(s => s.index == index);
