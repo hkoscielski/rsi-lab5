@@ -1,4 +1,5 @@
 ﻿//using MojWebSerwis;
+using MojWebSerwis;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,18 +10,22 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.Serialization.Json;
+using System.Net;
+using System.IO;
 
 namespace MojKlientWindow
 {
     public partial class Form1 : Form
     {
-        private List<Student> students;
-        //private ServiceReference1.RestService1Client client;
-        private RestService1Client client;
+        private List<Student> students;        
 
         private const string BASE_URI = "http://192.168.0.7:3000/Service1.svc";
+        private const int CODEPAGE = 1252; 
         private const string FORMAT = "json";
         private const string JSON_CONTENT_TYPE = "application/json";
+        private const string RESOURCE_STUDENTS = "/students";
+        private const string SLASH = "/";
 
         private enum Method
         {
@@ -32,14 +37,8 @@ namespace MojKlientWindow
         
         public Form1()
         {
-            InitializeComponent();
-            WebHttpBinding binding = new WebHttpBinding();
-            EndpointAddress address = new EndpointAddress(BASE_URI);
-            //client = new ServiceReference1.RestService1Client(binding, address);
-            //client = new RestService1Client();// binding, address);
-            client = new RestService1Client();
+            InitializeComponent();            
             students = new List<Student>();
-
             LoadAllStudents();
         }
 
@@ -115,8 +114,9 @@ namespace MojKlientWindow
 
         private void LoadAllStudents()
         {
-            Student[] st = client.GetJsonAll();
-            students = st.ToList();
+            //Student[] st = client.GetJsonAll();
+            //students = st.ToList();
+
         }
 
         private void LoadListView() {
@@ -131,6 +131,108 @@ namespace MojKlientWindow
                 lvi.SubItems.Add(s.yearOfBirth.ToString());
             }
             
+        }
+
+        private string CreateJsonStudent(string jsonStudent)
+        {
+            string _uri = string.Format("{0}{1}", BASE_URI, RESOURCE_STUDENTS);
+            HttpWebRequest _req = WebRequest.Create(_uri) as HttpWebRequest;
+            _req.KeepAlive = false;
+            _req.Method = Enum.GetName(typeof(Method), Method.POST);
+            _req.ContentType = JSON_CONTENT_TYPE;
+
+            byte[] _buffer = Encoding.UTF8.GetBytes(jsonStudent);
+            _req.ContentLength = _buffer.Length;
+            Stream _postData = _req.GetRequestStream();
+            _postData.Write(_buffer, 0, _buffer.Length);
+            _postData.Close();
+
+            HttpWebResponse _resp = _req.GetResponse() as HttpWebResponse;
+            Encoding _enc = System.Text.Encoding.GetEncoding(CODEPAGE);
+            StreamReader _responseStream = new StreamReader(_resp.GetResponseStream(), _enc);
+            string _responseString = _responseStream.ReadToEnd();
+            _responseStream.Close();
+            _resp.Close();
+
+            return _responseString;
+        }
+
+        private string DeleteJsonStudent(string index)
+        {
+            string _uri = string.Format("{0}{1}{2}{3}", BASE_URI, RESOURCE_STUDENTS, SLASH, index);
+            HttpWebRequest _req = WebRequest.Create(_uri) as HttpWebRequest;
+            _req.KeepAlive = false;
+            _req.Method = Enum.GetName(typeof(Method), Method.DELETE);
+            _req.ContentType = JSON_CONTENT_TYPE;            
+
+            HttpWebResponse _resp = _req.GetResponse() as HttpWebResponse;
+            Encoding _enc = System.Text.Encoding.GetEncoding(CODEPAGE);
+            StreamReader _responseStream = new StreamReader(_resp.GetResponseStream(), _enc);
+            string _responseString = _responseStream.ReadToEnd();
+            _responseStream.Close();
+            _resp.Close();
+
+            return _responseString;
+        }
+
+        private string LoadJsonStudent(string index)
+        {
+            string _uri = string.Format("{0}{1}{2}{3}", BASE_URI, RESOURCE_STUDENTS, SLASH, index);
+            HttpWebRequest _req = WebRequest.Create(_uri) as HttpWebRequest;
+            _req.KeepAlive = false;
+            _req.Method = Enum.GetName(typeof(Method), Method.GET);
+            _req.ContentType = JSON_CONTENT_TYPE;
+
+            HttpWebResponse _resp = _req.GetResponse() as HttpWebResponse;
+            Encoding _enc = System.Text.Encoding.GetEncoding(CODEPAGE);
+            StreamReader _responseStream = new StreamReader(_resp.GetResponseStream(), _enc);
+            string _responseString = _responseStream.ReadToEnd();
+            _responseStream.Close();
+            _resp.Close();
+
+            return _responseString;
+        }
+
+        private string LoadAllJsonStudents()
+        {
+            string _uri = string.Format("{0}{1}", BASE_URI, RESOURCE_STUDENTS);
+            HttpWebRequest _req = WebRequest.Create(_uri) as HttpWebRequest;
+            _req.KeepAlive = false;
+            _req.Method = Enum.GetName(typeof(Method), Method.GET);
+            _req.ContentType = JSON_CONTENT_TYPE;
+
+            HttpWebResponse _resp = _req.GetResponse() as HttpWebResponse;
+            Encoding _enc = System.Text.Encoding.GetEncoding(CODEPAGE);
+            StreamReader _responseStream = new StreamReader(_resp.GetResponseStream(), _enc);
+            string _responseString = _responseStream.ReadToEnd();
+            _responseStream.Close();
+            _resp.Close();
+
+            return _responseString;
+        }
+
+        private string UpdateJsonStudent(string index, string jsonStudent)
+        {
+            string _uri = string.Format("{0}{1}{2}{3}", BASE_URI, RESOURCE_STUDENTS, SLASH, index);
+            HttpWebRequest _req = WebRequest.Create(_uri) as HttpWebRequest;
+            _req.KeepAlive = false;
+            _req.Method = Enum.GetName(typeof(Method), Method.PUT);
+            _req.ContentType = JSON_CONTENT_TYPE;
+
+            byte[] _buffer = Encoding.UTF8.GetBytes(jsonStudent);
+            _req.ContentLength = _buffer.Length;
+            Stream _postData = _req.GetRequestStream();
+            _postData.Write(_buffer, 0, _buffer.Length);
+            _postData.Close();
+
+            HttpWebResponse _resp = _req.GetResponse() as HttpWebResponse;
+            Encoding _enc = System.Text.Encoding.GetEncoding(CODEPAGE);
+            StreamReader _responseStream = new StreamReader(_resp.GetResponseStream(), _enc);
+            string _responseString = _responseStream.ReadToEnd();
+            _responseStream.Close();
+            _resp.Close();
+
+            return _responseString;
         }
     }
 }
