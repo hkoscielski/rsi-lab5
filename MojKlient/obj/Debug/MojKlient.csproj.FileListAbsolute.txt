@@ -1,7 +1,0 @@
-G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB5\SerwisWebowy\MojKlient\bin\Debug\MojKlient.exe.config
-G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB5\SerwisWebowy\MojKlient\bin\Debug\MojKlient.exe
-G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB5\SerwisWebowy\MojKlient\bin\Debug\MojKlient.pdb
-G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB5\SerwisWebowy\MojKlient\obj\Debug\MojKlient.csprojResolveAssemblyReference.cache
-G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB5\SerwisWebowy\MojKlient\obj\Debug\MojKlient.csproj.CoreCompileInputs.cache
-G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB5\SerwisWebowy\MojKlient\obj\Debug\MojKlient.exe
-G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB5\SerwisWebowy\MojKlient\obj\Debug\MojKlient.pdb
