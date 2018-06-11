@@ -5,12 +5,24 @@ using System.Windows.Forms;
 
 namespace MojKlientWindow
 {
+    /// <summary>
+    /// Klasa stanowiąca interfejs okienkowy klienta. 
+    /// Zawiera metody aktywowane podczas interakcji z kontrolkami w interfejsie graficznym.
+    /// Cała aplikacja zapewnia bazę studentów, z możliwością ich Filtrowania, Dodawania, Usuwania, Modyfikowania.
+    /// Zapewnia również wykorzystanie klasy klienta, która łączy się z serwisem.
+    /// Autor: 228172. Hubert Kościelski.
+    /// </summary>
     public partial class Form1 : Form
     {
         private Client client;        
         private List<Student> students;
         private Student tmpStudent;
 
+        /// <summary>
+        /// Konstruktor klasy Form1. Zapewnia inicjalizację komponentów interfejsu graficznego.
+        /// Inicjalizuje również nowe instancję klasy Client i Listy Studentów.
+        /// Dodatkowo ładuje pełna listę studentów, która będzie widoczna po uruchomieniu aplikacji.
+        /// </summary>
         public Form1()
         {
             InitializeComponent();
@@ -20,6 +32,15 @@ namespace MojKlientWindow
             ReloadListView();
         }
 
+        /// <summary>
+        /// Metoda wywoływana w momencie wciśnięcia przycisku "Dodaj" na interfejsie graficznym. 
+        /// Pobiera dane z kontrolek znajdujących się pod grupą "Zarządzanie". 
+        /// Następnie z podanych danych tworzy nową instancję Studenta. Wykorzystuje klasę JsonParser do konwersji obiektu Studenta do postaci JSON.
+        /// Następnie wywołuje odpowiednią metodę klasy Client, która wysyła obiekt w formacie JSON do serwisu.
+        /// Po wszystkim metoda pobiera nową listę studentów i odświeża kontrolkę wyświetlającą listę Studentów.
+        /// </summary>
+        /// <param name="sender">object Argument niewykorzystywany.</param>
+        /// <param name="e">EventArgs Argument niewykorzystywany</param>
         private void button_Add_Click(object sender, EventArgs e)
         {
             if(textBoxManager_Index.Text.Length == 0)
@@ -36,15 +57,22 @@ namespace MojKlientWindow
                 yearOfBirth = Int32.Parse(textBoxManager_YearOfBirth.Text)
             };
 
-            //Zapytanie do serwera.
+            //Zapytanie do serwisu.
             string _jsonStudent = JsonParser.WriteFromObject(s);
             string _response = this.client.CreateJsonStudent(_jsonStudent);
 
             LoadAllStudents();
             ReloadListView();
-
         }
 
+        /// <summary>
+        /// Metoda wywoływana w momencie wciśnięcia przycisku "Filtruj" na interfejsie graficznym. 
+        /// Pobiera dane z kontrolek znajdujących się pod grupą "Filtrowanie". 
+        /// Ładuje pełną listę studentów, następnie dokonuje na nich Filtrowania poprzez wykorzystanie metody Contains na każdej z właściwości Studenta, która zostanie porównana z odpowiednią kontrolką spod grupy "Filtrowanie".
+        /// Po dokonaniu Filtrowania, metoda odświeża kontrolkę wyświetlającą listę Studentów.
+        /// </summary>
+        /// <param name="sender">object Argument niewykorzystywany.</param>
+        /// <param name="e">EventArgs Argument niewykorzystywany</param>
         private void button_Filter_Click(object sender, EventArgs e)
         {            
             LoadAllStudents();
@@ -57,6 +85,16 @@ namespace MojKlientWindow
             ReloadListView();
         }
 
+        /// <summary>
+        /// Metoda wywoływana w momencie wciśnięcia przycisku "Modyfikuj" na interfejsie graficznym. 
+        /// Pobiera dane z kontrolek znajdujących się pod grupą "Zarządzanie". 
+        /// Modyfikuje studenta o podanym Indeksie. Ignoruje zmianę Imienia i Roku Urodzenia. Możliwa jest jedynie zmiana Nazwiska i Miasta danego Studenta.
+        /// W celu modyfikacji tworzy nową instancję Studenta na podstawie poprzedniej instancji. 
+        /// Tak powstały obiekt Studenta zamienia na obiekt w formacie JSON, który jest następnie wykorzystywany przez instancję Client do wykonania odpowiedniego połączenia z serwisem.
+        /// Po zmodyfikowaniu metoda pobiera nową listę studentów i odświeża kontrolkę wyświetlającą listę Studentów.
+        /// </summary>
+        /// <param name="sender">object Argument niewykorzystywany.</param>
+        /// <param name="e">EventArgs Argument niewykorzystywany</param>
         private void button_Modify_Click(object sender, EventArgs e)
         {
 
@@ -72,7 +110,7 @@ namespace MojKlientWindow
             
             string indexToUpdate = textBoxManager_Index.Text;
 
-            //Zapytanie do serwera.
+            //Zapytanie do serwisu.
             string _jsonStudent = JsonParser.WriteFromObject(s);
             string _response = this.client.UpdateJsonStudent(indexToUpdate, _jsonStudent);
 
@@ -80,17 +118,32 @@ namespace MojKlientWindow
             ReloadListView();
         }
 
+        /// <summary>
+        /// Metoda wywoływana w momencie wciśnięcia przycisku "Usuń" na interfejsie graficznym. 
+        /// Pobiera dane z kontrolek znajdujących się pod grupą "Zarządzanie". 
+        /// Usuwa studenta o podanym Indeksie. W tym celu wywołuje odpowiednią metodę za pomocą instancji Client.
+        /// Po dokonaniu usunięcia metoda pobiera nową listę studentów i odświeża kontrolkę wyświetlającą listę Studentów.
+        /// </summary>
+        /// <param name="sender">object Argument niewykorzystywany.</param>
+        /// <param name="e">EventArgs Argument niewykorzystywany</param>
         private void button_Delete_Click(object sender, EventArgs e)
         {
             string indexToDelete = textBoxManager_Index.Text;
 
-            //Zapytanie do serwera.
+            //Zapytanie do serwisu.
             string _response = this.client.DeleteJsonStudent(indexToDelete);
 
             LoadAllStudents();
             ReloadListView();
         }
 
+        /// <summary>
+        /// Metoda wywoływana w momencie zmiany wybranego Studenta na liście studentów z interfejsu graficznego. 
+        /// Pobiera dane wybranego Studenta i wstawia je do kontrolek znajdujących się pod grupą "Zarządzanie". 
+        /// Takie wybieranie Studentów ułatwia operacje Usuwania lub Modyfikowania poprzez wykluczenie konieczności ręcznego wpisywania danych.
+        /// </summary>
+        /// <param name="sender">object Argument niewykorzystywany.</param>
+        /// <param name="e">EventArgs Argument niewykorzystywany</param>
         private void listView_Students_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listView_Students.SelectedIndices.Count <= 0)
@@ -113,13 +166,19 @@ namespace MojKlientWindow
             };
         }
 
+        /// <summary>
+        /// Metoda pomocnicza pobierająca instancją Client całą listę studentów i przechowująca ją jako zmienną: Listę Studentów klasy Form1.
+        /// </summary>
         private void LoadAllStudents()
         {
-            //Zapytanie do serwera.
+            //Zapytanie do serwisu.
             string _jsonStudents = this.client.LoadAllJsonStudents();
             this.students = JsonParser.ReadToListOfObjects(_jsonStudents);
         }
 
+        /// <summary>
+        /// Metoda pomocnicza wywołująca ponowne załadowanie obecnie przechowywanej jako zmienna Listy Studentów w klasie Form1, do listy studentów znajdującej się w interfejsie graficznym.
+        /// </summary>
         private void ReloadListView()
         {
             listView_Students.Items.Clear();
