@@ -11,7 +11,7 @@ namespace MojKlientWindow
 {
     static class JsonParser
     {
-        private static string WriteFromObject(Student student)
+        public static string WriteFromObject(Student student)
         {
             MemoryStream ms = new MemoryStream();
 

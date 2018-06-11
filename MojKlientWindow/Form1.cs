@@ -26,7 +26,7 @@ namespace MojKlientWindow
 
         private void button_Add_Click(object sender, EventArgs e)
         {
-            if(textBoxFilter_Index.Text.Length == 0)
+            if(textBoxManager_Index.Text.Length == 0)
             {
                 return;
             }
@@ -40,7 +40,8 @@ namespace MojKlientWindow
                 yearOfBirth = Int32.Parse(textBoxManager_YearOfBirth.Text)
             };
 
-            
+            string _jsonStudent = JsonParser.WriteFromObject(s);
+            string _response = this.client.CreateJsonStudent(_jsonStudent);
 
             //Tutaj zapytanie do serwera.
 
@@ -61,21 +62,27 @@ namespace MojKlientWindow
             ReloadListView();
         }
 
+        private Student tmpStudent;
+
         private void button_Modify_Click(object sender, EventArgs e)
         {
+
             Student s = new Student
             {
                 index = textBoxManager_Index.Text,
                 lastName = textBoxManager_Surname.Text,
-                firstName = textBoxManager_Name.Text,
+                firstName = tmpStudent.firstName, //textBoxManager_Name.Text,
                 city = textBoxManager_City.Text,
-                yearOfBirth = Int32.Parse(textBoxManager_YearOfBirth.Text)
+                yearOfBirth = tmpStudent.yearOfBirth//Int32.Parse(textBoxManager_YearOfBirth.Text)
             };
 
-            string indexToDelete = textBoxManager_Index.Text;
+            
+            string indexToUpdate = textBoxManager_Index.Text;
 
             //Tutaj zapytanie Delete.
             //Tutaj zapytanie Add.
+            string _jsonStudent = JsonParser.WriteFromObject(s);
+            string _response = this.client.UpdateJsonStudent(indexToUpdate, _jsonStudent);
 
             LoadAllStudents();
             ReloadListView();
@@ -87,14 +94,31 @@ namespace MojKlientWindow
 
             //string _response = this.client.DeleteJsonStudent
             //Tutaj zapytanie do serwera.
-
+            string _response = this.client.DeleteJsonStudent(indexToDelete);
             LoadAllStudents();
             ReloadListView();
         }
 
         private void listView_Students_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (listView_Students.SelectedIndices.Count <= 0)
+                return;
 
+            ListViewItem lvi = listView_Students.Items[listView_Students.SelectedIndices[0]];
+            textBoxManager_Index.Text = lvi.SubItems[0].Text;
+            textBoxManager_Surname.Text = lvi.SubItems[1].Text;
+            textBoxManager_Name.Text = lvi.SubItems[2].Text;
+            textBoxManager_City.Text = lvi.SubItems[3].Text;
+            textBoxManager_YearOfBirth.Text = lvi.SubItems[4].Text;
+
+            tmpStudent = new Student
+            {
+                index = textBoxManager_Index.Text,
+                lastName = textBoxManager_Surname.Text,
+                firstName = textBoxManager_Name.Text,
+                city = textBoxManager_City.Text,
+                yearOfBirth = Int32.Parse(textBoxManager_YearOfBirth.Text)
+            };
         }
 
         private void LoadAllStudents()
