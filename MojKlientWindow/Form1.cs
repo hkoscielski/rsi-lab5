@@ -7,7 +7,7 @@ namespace MojKlientWindow
 {
     public partial class Form1 : Form
     {
-        private Client client;
+        private Client client;        
         private List<Student> students;
 
         public Form1()
@@ -16,7 +16,7 @@ namespace MojKlientWindow
             this.client = new Client();
             this.students = new List<Student>();
             LoadAllStudents();
-            LoadListView();
+            ReloadListView();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -26,6 +26,11 @@ namespace MojKlientWindow
 
         private void button_Add_Click(object sender, EventArgs e)
         {
+            if(textBoxFilter_Index.Text.Length == 0)
+            {
+                return;
+            }
+
             Student s = new Student
             {
                 index = textBoxManager_Index.Text,
@@ -35,15 +40,17 @@ namespace MojKlientWindow
                 yearOfBirth = Int32.Parse(textBoxManager_YearOfBirth.Text)
             };
 
+            
+
             //Tutaj zapytanie do serwera.
 
             LoadAllStudents();
-            LoadListView();
+            ReloadListView();
 
         }
 
         private void button_Filter_Click(object sender, EventArgs e)
-        {
+        {            
             LoadAllStudents();
             students = students.FindAll(s =>
                 s.index.Contains(textBoxFilter_Index.Text) &&
@@ -51,7 +58,7 @@ namespace MojKlientWindow
                 s.firstName.Contains(textBoxFilter_Name.Text) &&
                 s.city.Contains(textBoxFilter_City.Text) &&
                 s.yearOfBirth.ToString().Contains(textBoxFilter_YearOfBirth.Text));
-            LoadListView();
+            ReloadListView();
         }
 
         private void button_Modify_Click(object sender, EventArgs e)
@@ -71,17 +78,18 @@ namespace MojKlientWindow
             //Tutaj zapytanie Add.
 
             LoadAllStudents();
-            LoadListView();
+            ReloadListView();
         }
 
         private void button_Delete_Click(object sender, EventArgs e)
         {
             string indexToDelete = textBoxManager_Index.Text;
 
+            //string _response = this.client.DeleteJsonStudent
             //Tutaj zapytanie do serwera.
 
             LoadAllStudents();
-            LoadListView();
+            ReloadListView();
         }
 
         private void listView_Students_SelectedIndexChanged(object sender, EventArgs e)
@@ -95,8 +103,9 @@ namespace MojKlientWindow
             this.students = JsonParser.ReadToListOfObjects(_jsonStudents);
         }
 
-        private void LoadListView()
+        private void ReloadListView()
         {
+            listView_Students.Items.Clear();
             foreach(Student s in this.students)
             {
                 string[] _row = new string[] { s.index, s.lastName, s.firstName, s.city, s.yearOfBirth.ToString() };
