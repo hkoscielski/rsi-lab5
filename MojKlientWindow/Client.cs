@@ -8,11 +8,12 @@ using System.Threading.Tasks;
 
 public class Client
 {
-    private const string BASE_URI = "http://192.168.0.7:3000/Service1.svc";
-    private const int CODEPAGE = 1252;
+    //private const string BASE_URI = "http://192.168.0.7:3000/Service1.svc";
+    private const string BASE_URI = "http://localhost:50892/Service1.svc";
+    private const int CODEPAGE = 65001;
     private const string FORMAT = "json";
     private const string JSON_CONTENT_TYPE = "application/json";
-    private const string RESOURCE_STUDENTS = "/students";
+    private const string JSON_RESOURCE_STUDENTS = "/json/students";
     private const string SLASH = "/";
 
     private enum Method
@@ -23,9 +24,9 @@ public class Client
         PUT
     }
 
-    private string CreateJsonStudent(string jsonStudent)
+    public string CreateJsonStudent(string jsonStudent)
     {
-        string _uri = string.Format("{0}{1}", BASE_URI, RESOURCE_STUDENTS);
+        string _uri = string.Format("{0}{1}", BASE_URI, JSON_RESOURCE_STUDENTS);
         HttpWebRequest _req = WebRequest.Create(_uri) as HttpWebRequest;
         _req.KeepAlive = false;
         _req.Method = Enum.GetName(typeof(Method), Method.POST);
@@ -47,9 +48,9 @@ public class Client
         return _responseString;
     }
 
-    private string DeleteJsonStudent(string index)
+    public string DeleteJsonStudent(string index)
     {
-        string _uri = string.Format("{0}{1}{2}{3}", BASE_URI, RESOURCE_STUDENTS, SLASH, index);
+        string _uri = string.Format("{0}{1}{2}{3}", BASE_URI, JSON_RESOURCE_STUDENTS, SLASH, index);
         HttpWebRequest _req = WebRequest.Create(_uri) as HttpWebRequest;
         _req.KeepAlive = false;
         _req.Method = Enum.GetName(typeof(Method), Method.DELETE);
@@ -65,9 +66,9 @@ public class Client
         return _responseString;
     }
 
-    private string LoadJsonStudent(string index)
+    public string LoadJsonStudent(string index)
     {
-        string _uri = string.Format("{0}{1}{2}{3}", BASE_URI, RESOURCE_STUDENTS, SLASH, index);
+        string _uri = string.Format("{0}{1}{2}{3}", BASE_URI, JSON_RESOURCE_STUDENTS, SLASH, index);
         HttpWebRequest _req = WebRequest.Create(_uri) as HttpWebRequest;
         _req.KeepAlive = false;
         _req.Method = Enum.GetName(typeof(Method), Method.GET);
@@ -83,9 +84,9 @@ public class Client
         return _responseString;
     }
 
-    private string LoadAllJsonStudents()
+    public string LoadAllJsonStudents()
     {
-        string _uri = string.Format("{0}{1}", BASE_URI, RESOURCE_STUDENTS);
+        string _uri = string.Format("{0}{1}", BASE_URI, JSON_RESOURCE_STUDENTS);
         HttpWebRequest _req = WebRequest.Create(_uri) as HttpWebRequest;
         _req.KeepAlive = false;
         _req.Method = Enum.GetName(typeof(Method), Method.GET);
@@ -101,9 +102,9 @@ public class Client
         return _responseString;
     }
 
-    private string UpdateJsonStudent(string index, string jsonStudent)
+    public string UpdateJsonStudent(string index, string jsonStudent)
     {
-        string _uri = string.Format("{0}{1}{2}{3}", BASE_URI, RESOURCE_STUDENTS, SLASH, index);
+        string _uri = string.Format("{0}{1}{2}{3}", BASE_URI, JSON_RESOURCE_STUDENTS, SLASH, index);
         HttpWebRequest _req = WebRequest.Create(_uri) as HttpWebRequest;
         _req.KeepAlive = false;
         _req.Method = Enum.GetName(typeof(Method), Method.PUT);

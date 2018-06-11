@@ -28,18 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
-            "228000",
-            "Kowalski",
-            "Jan",
-            "Wrocław",
-            "1998"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
-            "231321",
-            "Surname",
-            "Name",
-            "City",
-            "Year"}, -1);
             this.listView_Students = new System.Windows.Forms.ListView();
             this.columnHeader_Index = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader_Surname = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -91,11 +79,6 @@
             this.columnHeader_BirthYear});
             this.listView_Students.FullRowSelect = true;
             this.listView_Students.HideSelection = false;
-            listViewItem1.StateImageIndex = 0;
-            listViewItem2.StateImageIndex = 0;
-            this.listView_Students.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2});
             this.listView_Students.Location = new System.Drawing.Point(12, 49);
             this.listView_Students.Name = "listView_Students";
             this.listView_Students.Size = new System.Drawing.Size(326, 318);

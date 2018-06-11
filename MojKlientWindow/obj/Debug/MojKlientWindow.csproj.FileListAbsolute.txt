@@ -11,3 +11,17 @@ C:\Users\Konrad2\Documents\GitHub\rsi-lab5\MojKlientWindow\obj\Debug\MojKlientWi
 C:\Users\Konrad2\Documents\GitHub\rsi-lab5\MojKlientWindow\bin\Debug\MojWebSerwis.dll
 C:\Users\Konrad2\Documents\GitHub\rsi-lab5\MojKlientWindow\bin\Debug\MojWebSerwis.pdb
 C:\Users\Konrad2\Documents\GitHub\rsi-lab5\MojKlientWindow\bin\Debug\MojWebSerwis.dll.config
+G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB5\SerwisWebowy\MojKlientWindow\bin\Debug\MojKlientWindow.exe.config
+G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB5\SerwisWebowy\MojKlientWindow\bin\Debug\MojKlientWindow.exe
+G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB5\SerwisWebowy\MojKlientWindow\bin\Debug\MojKlientWindow.pdb
+G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB5\SerwisWebowy\MojKlientWindow\bin\Debug\MojWebSerwis.dll
+G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB5\SerwisWebowy\MojKlientWindow\bin\Debug\MojWebSerwis.pdb
+G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB5\SerwisWebowy\MojKlientWindow\bin\Debug\MojWebSerwis.dll.config
+G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB5\SerwisWebowy\MojKlientWindow\obj\Debug\MojKlientWindow.csprojResolveAssemblyReference.cache
+G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB5\SerwisWebowy\MojKlientWindow\obj\Debug\MojKlientWindow.Form1.resources
+G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB5\SerwisWebowy\MojKlientWindow\obj\Debug\MojKlientWindow.Properties.Resources.resources
+G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB5\SerwisWebowy\MojKlientWindow\obj\Debug\MojKlientWindow.csproj.GenerateResource.cache
+G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB5\SerwisWebowy\MojKlientWindow\obj\Debug\MojKlientWindow.csproj.CoreCompileInputs.cache
+G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB5\SerwisWebowy\MojKlientWindow\obj\Debug\MojKlientWindow.csproj.CopyComplete
+G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB5\SerwisWebowy\MojKlientWindow\obj\Debug\MojKlientWindow.exe
+G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB5\SerwisWebowy\MojKlientWindow\obj\Debug\MojKlientWindow.pdb

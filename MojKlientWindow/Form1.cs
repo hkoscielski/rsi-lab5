@@ -1,30 +1,22 @@
-﻿//using MojWebSerwis;
-using MojWebSerwis;
+﻿using MojWebSerwis;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.ServiceModel;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Runtime.Serialization.Json;
-using System.Net;
-using System.IO;
 
 namespace MojKlientWindow
 {
     public partial class Form1 : Form
     {
-        private List<Student> students;         
-        
+        private Client client;
+        private List<Student> students;
+
         public Form1()
         {
-            InitializeComponent();            
-            students = new List<Student>();
+            InitializeComponent();
+            this.client = new Client();
+            this.students = new List<Student>();
             LoadAllStudents();
+            LoadListView();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -53,11 +45,11 @@ namespace MojKlientWindow
         private void button_Filter_Click(object sender, EventArgs e)
         {
             LoadAllStudents();
-            students = students.FindAll(s => 
-                s.index.Contains(textBoxFilter_Index.Text) && 
-                s.lastName.Contains(textBoxFilter_Surname.Text) && 
-                s.firstName.Contains(textBoxFilter_Name.Text) && 
-                s.city.Contains(textBoxFilter_City.Text) && 
+            students = students.FindAll(s =>
+                s.index.Contains(textBoxFilter_Index.Text) &&
+                s.lastName.Contains(textBoxFilter_Surname.Text) &&
+                s.firstName.Contains(textBoxFilter_Name.Text) &&
+                s.city.Contains(textBoxFilter_City.Text) &&
                 s.yearOfBirth.ToString().Contains(textBoxFilter_YearOfBirth.Text));
             LoadListView();
         }
@@ -98,23 +90,19 @@ namespace MojKlientWindow
         }
 
         private void LoadAllStudents()
+        {            
+            string _jsonStudents = this.client.LoadAllJsonStudents();
+            this.students = JsonParser.ReadToListOfObjects(_jsonStudents);
+        }
+
+        private void LoadListView()
         {
-            //Student[] st = client.GetJsonAll();
-            //students = st.ToList();
-
-        }
-
-        private void LoadListView() {
-
-            ListViewItem lvi;
-            foreach (Student s in students)
+            foreach(Student s in this.students)
             {
-                lvi = listView_Students.Items.Add(s.index);
-                lvi.SubItems.Add(s.lastName);
-                lvi.SubItems.Add(s.firstName);
-                lvi.SubItems.Add(s.city);
-                lvi.SubItems.Add(s.yearOfBirth.ToString());
+                string[] _row = new string[] { s.index, s.lastName, s.firstName, s.city, s.yearOfBirth.ToString() };
+                ListViewItem _listViewItem = new ListViewItem(_row);
+                listView_Students.Items.Add(_listViewItem);
             }
-            
         }
+    }
 }
