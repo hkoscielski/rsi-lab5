@@ -412,7 +412,6 @@
             this.Controls.Add(this.panel1);
             this.Name = "Form1";
             this.Text = "Student Manager";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.filterPanel.ResumeLayout(false);
             this.filterPanel.PerformLayout();
             this.panel2.ResumeLayout(false);

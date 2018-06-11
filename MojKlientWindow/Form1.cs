@@ -9,6 +9,7 @@ namespace MojKlientWindow
     {
         private Client client;        
         private List<Student> students;
+        private Student tmpStudent;
 
         public Form1()
         {
@@ -17,11 +18,6 @@ namespace MojKlientWindow
             this.students = new List<Student>();
             LoadAllStudents();
             ReloadListView();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void button_Add_Click(object sender, EventArgs e)
@@ -40,10 +36,9 @@ namespace MojKlientWindow
                 yearOfBirth = Int32.Parse(textBoxManager_YearOfBirth.Text)
             };
 
+            //Zapytanie do serwera.
             string _jsonStudent = JsonParser.WriteFromObject(s);
             string _response = this.client.CreateJsonStudent(_jsonStudent);
-
-            //Tutaj zapytanie do serwera.
 
             LoadAllStudents();
             ReloadListView();
@@ -62,8 +57,6 @@ namespace MojKlientWindow
             ReloadListView();
         }
 
-        private Student tmpStudent;
-
         private void button_Modify_Click(object sender, EventArgs e)
         {
 
@@ -71,16 +64,15 @@ namespace MojKlientWindow
             {
                 index = textBoxManager_Index.Text,
                 lastName = textBoxManager_Surname.Text,
-                firstName = tmpStudent.firstName, //textBoxManager_Name.Text,
+                firstName = tmpStudent.firstName,       //ignoruje
                 city = textBoxManager_City.Text,
-                yearOfBirth = tmpStudent.yearOfBirth//Int32.Parse(textBoxManager_YearOfBirth.Text)
+                yearOfBirth = tmpStudent.yearOfBirth    //ignoruje
             };
 
             
             string indexToUpdate = textBoxManager_Index.Text;
 
-            //Tutaj zapytanie Delete.
-            //Tutaj zapytanie Add.
+            //Zapytanie do serwera.
             string _jsonStudent = JsonParser.WriteFromObject(s);
             string _response = this.client.UpdateJsonStudent(indexToUpdate, _jsonStudent);
 
@@ -92,9 +84,9 @@ namespace MojKlientWindow
         {
             string indexToDelete = textBoxManager_Index.Text;
 
-            //string _response = this.client.DeleteJsonStudent
-            //Tutaj zapytanie do serwera.
+            //Zapytanie do serwera.
             string _response = this.client.DeleteJsonStudent(indexToDelete);
+
             LoadAllStudents();
             ReloadListView();
         }
@@ -122,7 +114,8 @@ namespace MojKlientWindow
         }
 
         private void LoadAllStudents()
-        {            
+        {
+            //Zapytanie do serwera.
             string _jsonStudents = this.client.LoadAllJsonStudents();
             this.students = JsonParser.ReadToListOfObjects(_jsonStudents);
         }
